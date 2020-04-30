@@ -11,11 +11,19 @@ const he = require('he')
 
 module.exports = {
 
-    alert: (items, type = 'danger') => {
+    alert: (items, type = 'danger', encoded = true, dismiss = false, title = false, className = false) => {
         let html = ''
         items.forEach(function(item) {
-            html += '<div class="alert alert-' + he.encode(type) + '" role="alert">'
-            html += he.encode(item)
+            html += '<div class="alert alert-' + he.encode(type) + (className ? ' ' + he.encode(className.trim()) : '') + (dismiss ? ' alert-dismissible fade show' : '') + '" role="alert">'
+            if (title) {
+                html += '<h4 class="alert-heading">' + he.encode(title) + '</h4>'
+            }
+            html += (encoded ? he.encode(item) : item)
+            if (dismiss) {
+                html += '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
+                html += '<span aria-hidden="true">&times;</span>'
+                html += '</button>'
+            }
             html += '</div>'
         })
         return html

@@ -24,9 +24,24 @@ const jsonBootstrap = require('json-bootstrap');
 
 ## Methods
 
-### alert
+### alert()
 
-Exposes a single dimension JSON array as Bootstrap Alerts.
+ Exposes a single dimension JSON array as Bootstrap Alerts.
+
+**Usage**
+
+*alert(items, type, encoded, dismiss, title, className)*
+
+**Parameters**
+
+| Parameter | Description                                                                        |
+| --------- | ---------------------------------------------------------------------------------  | 
+| items     | Array of strings.                                                                  |
+| type      | Possible values (primary, secondary, success, danger, warning, info, light, dark). |
+| encoded   | The items will be html encoded.                                                    |
+| dismiss   | Close button in the alert.                                                         |
+| title     | Title of the alert.                                                                |
+| className | Class name to be added on each item.                                               |
 
 **Example**
 
@@ -38,18 +53,18 @@ const errors = [
     'Your username must have at least 2 characters.'
 ]
 
-console.log(jsonBootstrap.alert(errors, 'danger'))
+console.log(jsonBootstrap.alert(errors, 'danger', true, true, false, 'errors'))
 ```
 
-### card
+### card()
 
 Generates a Bootstrap Card.
 
-### form
+### form()
 
 Build a Bootstrap Form from a JSON object with properties.
 
-### table
+### table()
 
 Creates a Bootstrap Table from a JSON array of objects.
 
