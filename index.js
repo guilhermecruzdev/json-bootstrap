@@ -14,7 +14,7 @@ module.exports = {
     alert: (items, type = 'danger') => {
         let html = ''
         items.forEach(function(item) {
-            html += '<div class="alert alert-' + type + '" role="alert">'
+            html += '<div class="alert alert-' + he.encode(type) + '" role="alert">'
             html += he.encode(item)
             html += '</div>'
         })
