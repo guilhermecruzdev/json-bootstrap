@@ -1,3 +1,9 @@
+# v1.0.1
+
+Features:
+
+- Added new parameters to the `alert` method.
+
 # v1.0.0
 
 Features:
