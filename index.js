@@ -13,7 +13,7 @@ module.exports = {
 
     alert: (items, type = 'danger', encoded = true, dismiss = false, title = false, className = false) => {
         let html = ''
-        items.forEach(function(item) {
+        items.forEach(function (item) {
             html += '<div class="alert alert-' + he.encode(type) + (className ? ' ' + he.encode(className.trim()) : '') + (dismiss ? ' alert-dismissible fade show' : '') + '" role="alert">'
             if (title) {
                 html += '<h4 class="alert-heading">' + he.encode(title) + '</h4>'
@@ -39,7 +39,7 @@ module.exports = {
         html += he.encode(title)
         html += '</div>'
         html += '<ul class="list-group list-group-flush">'
-        items.forEach(function(item) {
+        items.forEach(function (item) {
             html += '<li class="list-group-item">' + he.encode(item) + '</li>'
         })
         html += '</ul>'
@@ -49,7 +49,7 @@ module.exports = {
 
     form: (items) => {
         let html = ''
-        items.forEach(function(item) {
+        items.forEach(function (item) {
             html += '<div class="form-group">'
             html += '<label for="">' + he.encode(item) + '</label>'
             html += '<input class="form-control" value="" />'
@@ -58,13 +58,18 @@ module.exports = {
         return html
     },
 
+    pagination: (page, rows, total) => {
+        let html = ''
+        return html
+    },
+
     table: (items) => {
         let html = ''
         html += '<table class="table">'
         html += '<tbody>'
-        items.forEach(function(subitems) {
+        items.forEach(function (subitems) {
             html += '<tr>'
-            subitems.forEach(function(subitem) {
+            subitems.forEach(function (subitem) {
                 html += '<td>' + he.encode(subitem) + '</td>'
             })
             html += '<tr>'
